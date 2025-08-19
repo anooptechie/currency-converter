@@ -1,4 +1,4 @@
-const BaseURL = "https://latest.currency-api.pages.dev/v1/currencies/eur.json"
+const BASE_URL = "https://latest.currency-api.pages.dev/v1/currencies/eur.json"
 
 const dropdowns = document.querySelectorAll(".dropdown select")
 const btn = document.querySelector("form button")
@@ -28,3 +28,13 @@ const updateFlag =(element)=>{
     let img = element.parentElement.querySelector("img");
     img.src = newSrc;
 }
+
+btn.addEventListener("click", (evt)=>{
+    evt.preventDefault();
+    let amount = document.querySelector(".amount input")
+    let amtVal = amount.value;
+    if(amtVal === "" || amtVal < 1){
+        amtVal=1;
+        amount.value = "1"
+    }
+})
